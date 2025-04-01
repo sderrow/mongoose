@@ -471,51 +471,6 @@ declare module 'mongoose' {
       options?: QueryOptions<DocType> | null
     ): QueryWithHelpers<DocType | null, DocType, THelpers, RawDocType, 'findOneAndUpdate', TDocOverrides>;
 
-    /** Declares the query a findById operation. When executed, returns the document with the given `_id`. */
-    findById(
-      id: mongodb.ObjectId | any,
-      projection?: ProjectionType<RawDocType> | null,
-      options?: QueryOptions<DocType> | null
-    ): QueryWithHelpers<DocType | null, DocType, THelpers, RawDocType, 'findOne', TDocOverrides>;
-    findById(
-      id: mongodb.ObjectId | any,
-      projection?: ProjectionType<RawDocType> | null
-    ): QueryWithHelpers<DocType | null, DocType, THelpers, RawDocType, 'findOne', TDocOverrides>;
-    findById(
-      id: mongodb.ObjectId | any
-    ): QueryWithHelpers<DocType | null, DocType, THelpers, RawDocType, 'findOne', TDocOverrides>;
-
-    /** Creates a `findByIdAndDelete` query, filtering by the given `_id`. */
-    findByIdAndDelete(
-      id: mongodb.ObjectId | any,
-      options: QueryOptions<DocType> & { includeResultMetadata: true }
-    ): QueryWithHelpers<ModifyResult<DocType>, DocType, THelpers, RawDocType, 'findOneAndDelete', TDocOverrides>;
-    findByIdAndDelete(
-      id?: mongodb.ObjectId | any,
-      options?: QueryOptions<DocType> | null
-    ): QueryWithHelpers<DocType | null, DocType, THelpers, RawDocType, 'findOneAndDelete', TDocOverrides>;
-
-    /** Creates a `findOneAndUpdate` query, filtering by the given `_id`. */
-    findByIdAndUpdate(
-      id: mongodb.ObjectId | any,
-      update: UpdateQuery<RawDocType>,
-      options: QueryOptions<DocType> & { includeResultMetadata: true }
-    ): QueryWithHelpers<any, DocType, THelpers, RawDocType, 'findOneAndUpdate', TDocOverrides>;
-    findByIdAndUpdate(
-      id: mongodb.ObjectId | any,
-      update: UpdateQuery<RawDocType>,
-      options: QueryOptions<DocType> & { upsert: true } & ReturnsNewDoc
-    ): QueryWithHelpers<DocType, DocType, THelpers, RawDocType, 'findOneAndUpdate', TDocOverrides>;
-    findByIdAndUpdate(
-      id?: mongodb.ObjectId | any,
-      update?: UpdateQuery<RawDocType>,
-      options?: QueryOptions<DocType> | null
-    ): QueryWithHelpers<DocType | null, DocType, THelpers, RawDocType, 'findOneAndUpdate', TDocOverrides>;
-    findByIdAndUpdate(
-      id: mongodb.ObjectId | any,
-      update: UpdateQuery<RawDocType>
-    ): QueryWithHelpers<DocType | null, DocType, THelpers, RawDocType, 'findOneAndUpdate', TDocOverrides>;
-
     /** Specifies a `$geometry` condition */
     geometry(object: { type: string, coordinates: any[] }): this;
 
